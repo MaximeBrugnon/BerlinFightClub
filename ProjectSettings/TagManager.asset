@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Post Process
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Sky
+    uniqueID: 3375016091
     locked: 0
   - name: Background
     uniqueID: 714634055
