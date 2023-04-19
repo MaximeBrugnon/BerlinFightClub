@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
+    public bool facingRight = true;
 
     Vector2 movement;
 
