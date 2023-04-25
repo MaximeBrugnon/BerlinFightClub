@@ -11,7 +11,6 @@ public class CharacterController2D : MonoBehaviour
 
     Vector2 movement;
 
-    // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -20,7 +19,6 @@ public class CharacterController2D : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
     }
 
     void FixedUpdate()
