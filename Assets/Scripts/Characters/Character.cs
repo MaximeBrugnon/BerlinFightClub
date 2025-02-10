@@ -10,14 +10,18 @@ public class Character : MonoBehaviour, IMovable
     public StateMachine StateMachine { get; set; }
     public IdleState IdleState { get; set; }
     public WalkState WalkState { get; set; }
+    public JumpState JumpState { get; set; }
 
     #endregion
 
     #region Movement Variables
 
-    public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
     public Vector2 inputMovement;
+
+    public Rigidbody2D RB { get; set; }
+    public bool IsJumping { get; set; }
+    public float jumpYAxis;
 
     #endregion
 
@@ -32,12 +36,23 @@ public class Character : MonoBehaviour, IMovable
 
     public Animator animator;
 
+    public GameObject dustPrefab;
+
 
     #region Movement Functions
 
     public void MoveCharacter(Vector2 velocity)
     {
         transform.position = transform.position + new Vector3(velocity.x, velocity.y, 0.0f) * Time.deltaTime;
+
+        if (transform.position.y >= MaxY)
+        {
+            transform.position = new Vector3(transform.position.x, MaxY, 0f);
+        } else if (transform.position.y <= MinY)
+        {
+            transform.position = new Vector3(transform.position.x, MinY, 0f);
+        }
+
         ScaleCharacter();
         CheckForLeftOrRightFacing();
     }
@@ -73,8 +88,10 @@ public class Character : MonoBehaviour, IMovable
 
         IdleState = new IdleState(this, StateMachine);
         WalkState = new WalkState(this, StateMachine);
+        JumpState = new JumpState(this, StateMachine);
 
-        RB = GetComponent<Rigidbody2D>();
+        RB = GetComponentInChildren<Rigidbody2D>();
+
         animator = GetComponentInChildren<Animator>();
     }
 

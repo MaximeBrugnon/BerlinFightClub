@@ -5,10 +5,13 @@ using UnityEngine;
 public interface IMovable
 {
     Rigidbody2D RB { get; set; }
+    bool IsJumping { get; set; }
 
     bool IsFacingRight { get; set; }
 
     void MoveCharacter(Vector2 velocity);
 
     void CheckForLeftOrRightFacing();
+
+    void ScaleCharacter();
 }

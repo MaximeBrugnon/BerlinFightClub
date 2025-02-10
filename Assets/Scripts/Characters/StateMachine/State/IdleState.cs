@@ -16,6 +16,7 @@ public class IdleState : BaseState
     public override void EnterState()
     {
         base.EnterState();
+
         character.animator.SetFloat("Speed", 0f);
         Debug.Log("Hello Idle State");
     }
@@ -31,11 +32,28 @@ public class IdleState : BaseState
         {
             character.StateMachine.ChangeState(character.WalkState);
         }
+
+        if (Input.GetButtonDown("Jump") && !character.IsJumping)
+        {
+            character.StateMachine.ChangeState(character.JumpState);
+
+        }
+
+        if (Input.GetButtonDown("Guard"))
+        {
+            character.animator.SetBool("Guard", true);
+        }
+
+        if (Input.GetButtonUp("Guard"))
+        {
+            character.animator.SetBool("Guard", false);
+
+        }
     }
 
     public override void PhysicsUpdate()
     {
-    
+
     }
 
 }

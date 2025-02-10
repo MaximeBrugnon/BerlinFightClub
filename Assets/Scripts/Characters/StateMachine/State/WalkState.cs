@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WalkState : BaseState
 {
-    private float moveSpeed = 4f;
+    private float moveSpeed = 5f;
 
     public WalkState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
@@ -34,12 +34,18 @@ public class WalkState : BaseState
             character.StateMachine.ChangeState(character.IdleState);
         }
 
+        if (Input.GetButtonDown("Jump") && !character.IsJumping)
+        {
+            character.StateMachine.ChangeState(character.JumpState);
+
+        }
+
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        Vector2 velocity = new Vector2(character.inputMovement.x * moveSpeed, character.inputMovement.y * moveSpeed/2);
+        Vector2 velocity = new Vector2(character.inputMovement.x * moveSpeed, character.inputMovement.y * moveSpeed/4);
         character.MoveCharacter(velocity);
 
     }
