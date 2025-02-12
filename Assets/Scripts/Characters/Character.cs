@@ -11,6 +11,7 @@ public class Character : MonoBehaviour, IMovable
     public IdleState IdleState { get; set; }
     public WalkState WalkState { get; set; }
     public JumpState JumpState { get; set; }
+    public FightState FightState { get; set; }
 
     #endregion
 
@@ -89,6 +90,8 @@ public class Character : MonoBehaviour, IMovable
         IdleState = new IdleState(this, StateMachine);
         WalkState = new WalkState(this, StateMachine);
         JumpState = new JumpState(this, StateMachine);
+        FightState = new FightState(this, StateMachine);
+
 
         RB = GetComponentInChildren<Rigidbody2D>();
 

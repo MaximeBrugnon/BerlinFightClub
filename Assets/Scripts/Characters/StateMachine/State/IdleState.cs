@@ -49,6 +49,12 @@ public class IdleState : BaseState
             character.animator.SetBool("Guard", false);
 
         }
+
+        if (Input.GetButtonDown("Punch"))
+        {
+            character.StateMachine.ChangeState(character.FightState);
+
+        }
     }
 
     public override void PhysicsUpdate()

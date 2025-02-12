@@ -7,7 +7,8 @@ public class JumpState : BaseState
     public float jumpForce = 800f;
     private JumpSequenceType jumpSequence = JumpSequenceType.Grounded;
     private float jumpLastHeight = 0;
-    private GameObject dustCloud;
+
+    private float moveSpeed = 5f;
 
     public JumpState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
@@ -21,8 +22,6 @@ public class JumpState : BaseState
     public override void EnterState()
     {
         base.EnterState();
-
-        dustCloud = GameObject.Find("Dustcloud");
 
         character.RB.WakeUp();
         character.RB.gravityScale = 5f;
@@ -87,6 +86,9 @@ public class JumpState : BaseState
             character.IsJumping = true;
             character.RB.AddForce(Vector2.up * jumpForce);
         }
+
+        Vector2 velocity = new Vector2(character.inputMovement.x * moveSpeed, character.inputMovement.y * moveSpeed / 4);
+        character.MoveCharacter(velocity);
 
     }
 
