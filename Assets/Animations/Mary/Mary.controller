@@ -398,7 +398,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gets up
+  m_Name: Gets up back
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -939,7 +939,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc6b4e74b20344bf5ae80737627c21df, type: 2}
+  m_Motion: {fileID: 7400000, guid: f3717c69453744a87b6c83bb46694a09, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1109,7 +1109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Falls back 1
+  m_Name: Falls front
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1641,7 +1641,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 1
@@ -1734,7 +1734,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gets up 1
+  m_Name: Gets up front
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1825,7 +1825,7 @@ AnimatorStateMachine:
     m_Position: {x: -310, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8385523512129283121}
-    m_Position: {x: -60, y: 120, z: 0}
+    m_Position: {x: 0, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2876244443983358154}
     m_Position: {x: -170, y: -120, z: 0}
